@@ -9,7 +9,7 @@ services:
 'CONNECT_CONSUMER_INTERCEPTOR_CLASSES=io.confluent.monitoring.clients.interceptor.MonitoringConsumerInterceptor','CONNECT_PLUGIN_PATH=/usr/share/java,/usr/share/confluent-hub-components','CONNECT_LOG4J_LOGGERS=org.apache.zookeeper=ERROR,org.I0Itec.zkclient=ERROR,org.reflections=ERROR']
     command: []
     volumes: ['${CONTECO_STACKPREFIX}_kafka_connect_connect_secrets_volume:/etc/kafka-connect/secrets','${CONTECO_STACKPREFIX}_kafka_connect_secrets_volume:/etc/kafka/secrets','${CONTECO_STACKPREFIX}_kafka_connect_data_volume:/var/lib/kafka/data','${CONTECO_STACKPREFIX}_kafka_connect_jars_volume:/etc/kafka-connect/jars']
-    ports: []
+    ports: [${CONTECO_DC_KAFKA_CONNECT_PORTS}]
     networks: [${CONTECO_NETWORKLOCAL}_overlay]
     deploy:
       mode: replicated

@@ -19,3 +19,7 @@ if [[ "package_kafka_connect_kafka_connect_kafka_connect_jars_volume" == "$prefi
 	executionplane --silent docker volume create package_kafka_connect_kafka_connect_kafka_connect_jars_volume
 	fi
 	
+if [[ "package_kafka_connect_kafka_connect_kafka_connect_jars_volume" == "$prefix"* ]] ; then
+			executionplane --silent docker run -v package_kafka_connect_kafka_connect_kafka_connect_jars_volume:/etc/kafka-connect/jars ${CONTECO_REGISTRY}$1 --interactive tar -C / -xvf /modeco/volumes/kafka_connect_kafka_connect_jars_volume.tar
+		fi
+		
